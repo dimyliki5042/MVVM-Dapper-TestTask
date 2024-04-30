@@ -1,0 +1,45 @@
+﻿<Window x:Class="TestTask.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TestTask"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid ShowGridLines="True">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <ToolBar VerticalAlignment="Top" Grid.Row="0">
+            <Button Command="{Binding TakeData}">
+                <TextBlock>Главная</TextBlock>
+            </Button>
+            <Separator/>
+            <Button Command="{Binding Search}">
+                <TextBlock>Поиск</TextBlock>
+            </Button>
+            <Separator/>
+            <Button Command="{Binding Export}">
+                <TextBlock>Выгрузить CSV</TextBlock>
+            </Button>
+            <Separator/>
+            <Button Command="{Binding StreetSearch}">
+                <TextBlock>Улицы</TextBlock>
+            </Button>
+            <Separator/>
+        </ToolBar>
+        <DataGrid Grid.Row="1" x:Name="MainGrid" AutoGenerateColumns="False" ItemsSource="{Binding MainData}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Фамилия" Width="Auto" Binding="{Binding Surname}"/>
+                <DataGridTextColumn Header="Имя" Width="Auto" Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="Отчество" Width="Auto" Binding="{Binding Patronymic}"/>
+                <DataGridTextColumn Header="Улица" Width="Auto" Binding="{Binding Street}"/>
+                <DataGridTextColumn Header="Номер дома" Width="Auto" Binding="{Binding House}"/>
+                <DataGridTextColumn Header="Номер телефона (домашний)" Width="Auto" Binding="{Binding HomeNumber}"/>
+                <DataGridTextColumn Header="Номер телефона (рабочий)" Width="Auto" Binding="{Binding WorkNumber}"/>
+                <DataGridTextColumn Header="Номер телефона (мобильный)" Width="Auto" Binding="{Binding PhoneNumber}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
